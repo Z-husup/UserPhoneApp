@@ -5,4 +5,6 @@
 - Razor Views
 - Entity Framework Core
 - SQLite
-- Docker
+## дополнительно
+- Docker файл
+- Unit тесты
