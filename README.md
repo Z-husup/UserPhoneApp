@@ -1,7 +1,8 @@
 # Задание: UserPhoneApp
 
-## Использованные технологии
+## технологии
 - ASP.NET Core MVC
+- Razor Views
 - Entity Framework Core
 - SQLite
 - Docker
