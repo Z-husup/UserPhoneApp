@@ -1,0 +1,36 @@
+﻿@model IEnumerable<UserPhoneApp.Models.Phone>
+@{
+    ViewData["Title"] = "Phones";
+}
+
+<h2>Phones</h2>
+
+<hr/>
+<p>
+    <a asp-action="Create" class="btn btn-primary"> Create </a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>User</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var phone in Model)
+    {
+        <tr>
+            <td>@phone.PhoneNumber</td>
+            <td>@phone.User?.Email</td>
+            <td>@phone.User?.Name</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@phone.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@phone.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

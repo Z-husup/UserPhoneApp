@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserPhoneApp", "UserPhoneApp\UserPhoneApp.csproj", "{BE179834-17A3-43F8-9540-EB2485E78609}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{686BD7C0-9502-4C74-B765-A7385E9D76BC}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserPhoneApp.Test", "UserPhoneApp.Test\UserPhoneApp.Test.csproj", "{AFC18403-1AF3-42FC-AB45-441CE72AAB1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE179834-17A3-43F8-9540-EB2485E78609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE179834-17A3-43F8-9540-EB2485E78609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE179834-17A3-43F8-9540-EB2485E78609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE179834-17A3-43F8-9540-EB2485E78609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC18403-1AF3-42FC-AB45-441CE72AAB1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC18403-1AF3-42FC-AB45-441CE72AAB1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC18403-1AF3-42FC-AB45-441CE72AAB1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC18403-1AF3-42FC-AB45-441CE72AAB1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

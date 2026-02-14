@@ -1,0 +1,97 @@
+﻿@model UserPhoneApp.Models.User
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h2>User Details</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+
+        <p>
+            <strong>Email:</strong> @Model.Email
+        </p>
+
+        <p>
+            <strong>Date of Birth:</strong>
+            @Model.DateOfBirth.ToShortDateString()
+        </p>
+
+        <a asp-action="Edit"
+           asp-route-id="@Model.Id"
+           class="btn btn-warning">
+            Edit User
+        </a>
+
+        <a asp-action="Delete"
+           asp-route-id="@Model.Id"
+           class="btn btn-danger">
+            Delete User
+        </a>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            Back
+        </a>
+    </div>
+</div>
+
+<hr />
+
+<h3>Phones</h3>
+
+<p>
+    <a asp-controller="Phones"
+       asp-action="Create"
+       asp-route-userId="@Model.Id"
+       asp-route-returnUrl="@Url.Action("Details","Users", new { id = Model.Id })"
+       class="btn btn-primary">
+        Add Phone
+    </a>
+</p>
+
+
+@if (Model.Phones != null && Model.Phones.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Phone Number</th>
+                <th style="width:200px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var phone in Model.Phones)
+        {
+            <tr>
+                <td>@phone.PhoneNumber</td>
+                <td>
+                    <a asp-controller="Phones"
+                       asp-action="Edit"
+                       asp-route-id="@phone.Id"
+                       asp-route-returnUrl="@Url.Action("Details","Users", new { id = Model.Id })"
+                       class="btn btn-sm btn-warning">
+                        Edit
+                    </a>
+
+                    <a asp-controller="Phones"
+                       asp-action="Delete"
+                       asp-route-id="@phone.Id"
+                       asp-route-returnUrl="@Url.Action("Details","Users", new { id = Model.Id })"
+                       class="btn btn-sm btn-danger">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        No phones added yet.
+    </div>
+}

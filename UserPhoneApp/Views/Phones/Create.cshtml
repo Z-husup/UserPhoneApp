@@ -1,0 +1,39 @@
+﻿@model UserPhoneApp.Models.Phone
+
+@{
+    ViewData["Title"] = "Create Phone";
+}
+
+<h2>Create Phone</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="UserId" class="form-label">Set Ownership</label>
+        <select asp-for="UserId"
+                asp-items="ViewBag.Users"
+                class="form-select">
+        </select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+
+    @if (!string.IsNullOrEmpty(ViewBag.ReturnUrl as string))
+    {
+        <a href="@ViewBag.ReturnUrl" class="btn btn-secondary">Back</a>
+    }
+    else
+    {
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    }
+</form>
