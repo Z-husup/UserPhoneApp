@@ -1,14 +1,19 @@
 # Задание: UserPhoneApp
 
-## технологии
+## Технологии
 - ASP.NET Core MVC
 - Razor Views
 - Entity Framework Core
 - SQLite
-## дополнительно
-- Unit тесты
-- Docker файл
 
-  docker build -t userphoneapp .
+## Дополнительно
+- Unit-тесты
+- Dockerfile
 
-  docker run -p 8080:8080 userphoneapp
+## Docker
+
+docker build -t userphoneapp .
+docker run -p 8080:8080 userphoneapp
+
+Приложение будет доступно по адресу:
+http://localhost:8080
