@@ -19,7 +19,6 @@ namespace UserPhoneApp.Controllers
             _userService = userService;
         }
 
-        // -------------------- INDEX --------------------
 
         public IActionResult Index()
         {
@@ -27,24 +26,19 @@ namespace UserPhoneApp.Controllers
             return View(phones);
         }
 
-        // -------------------- CREATE (GET) --------------------
 
         public IActionResult Create(int? userId, string? returnUrl)
         {
-            ViewBag.Users = new SelectList(
-                _userService.GetAll(),
-                "Id",
-                "Name",
-                userId
-            );
+            var users = _userService.GetAll();
 
-            ViewBag.HasUsers = _userService.GetAll().Any();
+            ViewBag.Users = new SelectList(users, "Id", "Name", userId);
+            ViewBag.HasUsers = users.Any();
+
             ViewBag.ReturnUrl = returnUrl;
 
             return View(new Phone { UserId = userId ?? 0 });
         }
 
-        // -------------------- CREATE (POST) --------------------
 
         [HttpPost]
         public IActionResult Create(Phone phone, string? returnUrl)
@@ -77,9 +71,7 @@ namespace UserPhoneApp.Controllers
                 selectedId
             );
         }
-
-
-        // -------------------- EDIT (GET) --------------------
+        
 
         public IActionResult Edit(int id, string? returnUrl)
         {
@@ -97,7 +89,6 @@ namespace UserPhoneApp.Controllers
             return View(phone);
         }
 
-        // -------------------- EDIT (POST) --------------------
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -129,7 +120,6 @@ namespace UserPhoneApp.Controllers
             }
         }
 
-        // -------------------- DELETE (GET) --------------------
 
         public IActionResult Delete(int id, string? returnUrl)
         {
@@ -139,8 +129,7 @@ namespace UserPhoneApp.Controllers
 
             return View(phone);
         }
-
-        // -------------------- DELETE (POST) --------------------
+        
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

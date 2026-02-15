@@ -2,6 +2,9 @@
 
 namespace UserPhoneApp.Models;
 
+/// <summary>
+/// Represents phone number that belongs to a user.
+/// </summary>
 public class Phone
 {
     public int Id { get; set; }

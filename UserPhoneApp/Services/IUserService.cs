@@ -2,6 +2,9 @@
 
 namespace UserPhoneApp.Services;
 
+/// <summary>
+/// Provides operations for managing users
+/// </summary>
 public interface IUserService
 {
     IEnumerable<User> GetAll();

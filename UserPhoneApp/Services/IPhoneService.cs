@@ -2,6 +2,9 @@
 
 namespace UserPhoneApp.Services;
 
+/// <summary>
+/// Provides operations for managing phones
+/// </summary>
 public interface IPhoneService
 {
     IEnumerable<Phone> GetAllWithUsers();

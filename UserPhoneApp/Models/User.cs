@@ -2,7 +2,10 @@
 
 namespace UserPhoneApp.Models;
 
-
+/// <summary>
+/// Represents user in the system
+/// User can have multiple phone numbers
+/// </summary>
 public class User
 {
     public int Id { get; set; }

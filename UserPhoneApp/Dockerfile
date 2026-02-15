@@ -1,22 +1,15 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["UserPhoneApp/UserPhoneApp.csproj", "UserPhoneApp/"]
-RUN dotnet restore "UserPhoneApp/UserPhoneApp.csproj"
+COPY ["UserPhoneApp.csproj", "./"]
+RUN dotnet restore "UserPhoneApp.csproj"
 COPY . .
-WORKDIR "/src/UserPhoneApp"
-RUN dotnet build "./UserPhoneApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
-
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./UserPhoneApp.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "UserPhoneApp.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "UserPhoneApp.dll"]

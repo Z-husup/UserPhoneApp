@@ -14,14 +14,12 @@ namespace UserPhoneApp.Controllers
             _userService = userService;
         }
 
-        // -------------------- INDEX --------------------
 
         public IActionResult Index()
         {
             return View(_userService.GetAll());
         }
 
-        // -------------------- DETAILS --------------------
 
         public IActionResult Details(int id)
         {
@@ -35,14 +33,12 @@ namespace UserPhoneApp.Controllers
             }
         }
 
-        // -------------------- CREATE (GET) --------------------
 
         public IActionResult Create()
         {
             return View();
         }
 
-        // -------------------- CREATE (POST) --------------------
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -68,9 +64,7 @@ namespace UserPhoneApp.Controllers
                 return View(user);
             }
         }
-
-
-        // -------------------- EDIT (GET) --------------------
+        
 
         public IActionResult Edit(int id)
         {
@@ -84,7 +78,6 @@ namespace UserPhoneApp.Controllers
             }
         }
 
-        // -------------------- EDIT (POST) --------------------
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -110,7 +103,6 @@ namespace UserPhoneApp.Controllers
             }
         }
 
-        // -------------------- DELETE (GET) --------------------
 
         public IActionResult Delete(int id)
         {
@@ -124,7 +116,6 @@ namespace UserPhoneApp.Controllers
             }
         }
 
-        // -------------------- DELETE (POST) --------------------
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

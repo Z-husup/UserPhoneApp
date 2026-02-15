@@ -5,10 +5,16 @@ using UserPhoneApp.Models;
 
 namespace UserPhoneApp.Services;
 
+/// <summary>
+/// Service responsible for:
+/// - Phone CRUD operations
+/// - PhoneNumber Validation.
+/// </summary>
 public class PhoneService : IPhoneService
 {
     private readonly AppDbContext _context;
-
+    
+    // Validation limits for PhoneNumber
     private const int MinPhoneLength = 7;
     private const int MaxPhoneLength = 15;
 

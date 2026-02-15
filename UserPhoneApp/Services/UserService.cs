@@ -2,12 +2,19 @@
 using UserPhoneApp.Data;
 using UserPhoneApp.Exceptions;
 using UserPhoneApp.Models;
-using UserPhoneApp.Services;
 
+namespace UserPhoneApp.Services;
+
+/// <summary>
+/// Service responsible for:
+/// - User CRUD operations
+/// - Name, Email, Date Validation.
+/// </summary>
 public class UserService : IUserService
 {
     private readonly AppDbContext _context;
 
+    // Validation limits for Name
     private const int MinNameLength = 2;
     private const int MaxNameLength = 50;
     
@@ -45,15 +52,17 @@ public class UserService : IUserService
     public void Update(User user)
     {
         var existing = _context.Users.Find(user.Id)
-            ?? throw new NotFoundException("User not found.");
+                       ?? throw new NotFoundException("User not found.");
 
         ValidateUser(user, user.Id);
 
         existing.Name = user.Name;
         existing.Email = user.Email;
+        existing.DateOfBirth = user.DateOfBirth;
 
         _context.SaveChanges();
     }
+
 
 
     public void Delete(int id)
@@ -67,7 +76,7 @@ public class UserService : IUserService
         _context.SaveChanges();
     }
 
-
+    
     private void ValidateUser(User user, int? updatingId = null)
     {
         if (user == null)
@@ -77,7 +86,7 @@ public class UserService : IUserService
         ValidateEmail(user, updatingId);
         ValidateDate(user);
     }
-
+    
     private void ValidateName(User user)
     {
         if (string.IsNullOrWhiteSpace(user.Name))
