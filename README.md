@@ -8,5 +8,7 @@
 ## дополнительно
 - Unit тесты
 - Docker файл
-    docker build -t userphoneapp .
-    docker run -p 8080:8080 userphoneapp
+
+  docker build -t userphoneapp .
+
+  docker run -p 8080:8080 userphoneapp
