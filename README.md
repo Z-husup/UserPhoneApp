@@ -1,10 +1,10 @@
 # Задание: UserPhoneApp
 
-## Технологии
+## Использовались
+- .NET 10.0
 - ASP.NET Core MVC
 - Razor Views
-- Entity Framework Core
-- SQLite
+- Entity Framework Core (SQLite)
 
 ## Дополнительно
 - Unit-тесты
