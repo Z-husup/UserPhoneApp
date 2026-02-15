@@ -12,8 +12,6 @@
 
 ## Docker
 
-docker build -t userphoneapp . \n
-docker run -p 8080:8080 userphoneapp
+docker build -t userphoneapp .
 
-Приложение будет доступно по адресу:
-http://localhost:8080
+docker run -p 8080:8080 userphoneapp
