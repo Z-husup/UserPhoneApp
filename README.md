@@ -6,5 +6,7 @@
 - Entity Framework Core
 - SQLite
 ## дополнительно
-- Docker файл
 - Unit тесты
+- Docker файл
+    docker build -t userphoneapp .
+    docker run -p 8080:8080 userphoneapp
